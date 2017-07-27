@@ -1,0 +1,192 @@
+   <header>
+<h1 className="p">Part 1. Module 1</h1>
+<p className="p"><strong>R Data Analysis Cookbook</strong></p>
+ <p className="p">Over 80 recipes to help you breeze through your data analysis projects using R</p>
+</header>
+
+<p className="p">Over 80 recipes to help you breeze through your data analysis projects using R</p>
+<p className="p">Chapter 1. A Simple Guide to R</p>
+<p className="p">In this chapter, we will cover the following recipes:</p>
+<ul>
+<li className="p">  Installing packages and getting help in R</li>
+<li className="p">  Data types in R</li>
+<li className="p">  Special values in R</li>
+<li className="p">  Matrices in R</li>
+<li className="p">  Editing a matrix in R</li>
+<li className="p">  Data frames in R</li>
+<li className="p">  Editing a data frame in R</li>
+<li className="p">  Importing data in R</li>
+<li className="p">  Exporting data in R</li>
+<li className="p">  Writing a function in R</li>
+<li className="p">  Writing if else statements in R</li>
+<li className="p">  Basic loops in R</li>
+<li className="p">  Nested loops in R</li>
+<li className="p">  The apply, lapply, sapply, and tapply functions</li>
+<li className="p">  Using par to beautify a plot in R</li>
+<li className="p">  Saving plots</li>
+</ul>
+<p className="p">Installing packages and getting help in R</p>
+<p className="p">If you are a new user and have never launched R, you must definitely start the learning process by understanding the use of install.packages(), library(), and getting help in R. R comes loaded with some basic packages, but the R community is rapidly growing and active R users are constantly developing new packages for R.</p>
+<p className="p">As you read through this cookbook, you will observe that we have used a lot of packages to create different visualizations. So the question now is, how do we know what packages are available in R? In order to keep myself up-to-date with all the changes that are happening in the R community, I diligently follow these blogs:</p>
+<ul>
+<li className="p">  Rblogger</li>
+<li className="p">  Rstudio blog</li>
+</ul>
+<p className="p">There are many blogs, websites, and posts that I will refer to as we go through the book. We can view a list of all the packages available in R by going to http://cran.r-project.org/. and also http://www.inside-r.org/packages provides a list as well as a short description of all the packages.</p>
+<p className="p">Getting ready</p>
+<p className="p">We can start by powering up our R studio, which is an Integrated Development Environment (IDE) for R. If you have not downloaded Rstudio, then I would highly recommend going to http://www.rstudio.com/ and downloading it.</p>
+<h4 className="p">How to do it...</h4>
+<p className="p">To install a package in R, we will use the install. packages() function. Once we install a package, we will have to load the package in our active R session; if not, we will get an error. The library() function allows us to load the package in R.</p>
+<h4 className="p">How it works...</h4>
+<p className="p">The install. packages() function comes with some additional arguments but, for the purpose of this book, we will only use the first argument, that is, the name of the package. We can also load multiple packages by using install.packages(c( "plotrix", "RColorBrewer")). The name of the package is the only argument we will use in the library() function. Note that you can only load one package at a time with the library() function unlike the install. packages() function.</p>
+<p className="p">There's more...</p>
+<p className="p">It is hard to remember all the functions and their arguments in R, unless we use them all the time, and we are bound to get errors and warning messages. The best way to learn R is to use the active R community and the help manual available in R.</p>
+<p className="p">To understand any function in R or to learn about the various arguments, we can type ?&#60;name of the function&#62;. For example, I can learn about all the arguments related to the plot() function by simply typing ?plot or ?plot() in the R console window. You will now view the help page on the right side of the screen. We can also learn more about the behavior of the function using some of the examples at the bottom of the help page.</p>
+<p className="p">If we are still unable to understand the function or its use and implementation, we could go to Google and type the question or use the Stack Overflow website. I am always able to resolve my errors by searching on the Internet. Remember, every problem has a solution, and the possibilities with R are endless.</p>
+<p className="p">See also</p>
+<ul>
+<li className="p">  Flowing Data (http://flowingdata.com/): This is a good resource to learn visualization tools and R. The tutorials are based on an annual subscription.</li>
+<li className="p">  Stack Overflow (http://stackoverflow.com/): This is a great place to get help regarding R functions.</li>
+<li className="p">  Inside-R (http://www.inside-r.org/): This lists all the packages along with a small description.</li>
+<li className="p">  Rblogger (http://www.r-bloggers.com/): This is a great webpage to learn about new R packages, books, tutorials, data scientists, and other data-related jobs.</li>
+<li className="p">  R forge (https://r-forge.r-project.org/).</li>
+<li className="p">  R journal (http://journal.r-project.org/archive/2014-1/).</li>
+</ul>
+<p className="p">Data types in R</p>
+<p className="p">Everything in R is in the form of objects. Objects can be manipulated in R. Some of the common objects in R are numeric vectors, character vectors, complex vectors, logical vectors, and integer vectors.</p>
+<pre><code>
+&#60; x = c(1:5) # Numeric Vector<br></br>
+&#60; y = "I am Home" # Character Vector<br></br>
+&#60; c = c(1+3i) # Complex Vector<br></br>
+&#60; <br></br>
+&#60; x = c(1:5) # Numeric Vector<br></br>
+&#60; x<br></br>
+[1] 1 2 3 4 5 <br></br>
+&#60;<br></br>
+&#60; y = "I am Home" # Character Vector<br></br><br></br>
+&#60; y<br></br>
+[1] "I am Home" <br></br>
+&#60; <br></br>
+&#60; c = c(1+3i) # Complex Vector<br></br>
+&#60; <br></br>
+&#60; c<br></br>
+[1] 1+3i<br></br>
+</code>
+</pre>
+<h4 className="p">How to do it...</h4>
+<p className="p">In order to generate a numeric vector in R, we can use the C() notation to specify it as follows:</p>
+<pre><code>
+ x = c(1:5) # Numeric Vector   
+
+</code></pre>
+<p className="p">To generate a character vector, we can specify the same within quotes (” ”) as follows:</p>
+<pre><code>
+y ="I am Home" # Character Vector    
+
+</code></pre>
+<p className="p">To generate a complex vector, we can use the i notation as follows:</p>
+<pre><code>
+c = c(1+3i) #complex vector   
+
+</code></pre>
+<p className="p">A list is a combination of a character and a numeric vector and can be specified using the list() notation:</p>
+<pre><code>
+z = list(c(1:5), "I am Home") # List    
+
+</code></pre>
+<h2 className="p">Special values in R</h2>
+<p className="p">R comes with some special values. Some of the special values in R are NA, Inf, -Inf, and NaN.</p>
+<pre><code>
+&#60; z = c( 1,2,3, NA,5,NA) # NA in R is missing Data<br></br>
+&#60; z <br></br>
+[1]  1,2,3, NA,5,NA<br></br>
+&#60;<span className="bl">complete.cases(z) # function to detected NA</span><br></br>
+[1] TRUE TRUE TRUE FALSE TRUE <span className="or">FALSE</span><br></br>
+&#60;<br></br>
+&#60;<span className="bl">is.na(z) # function to detected NA</span><br></br>
+[1] FALSE FALSE FALSE <span className="or">TRUE</span> FALSE <span className="or">TRUE</span><br></br>
+&#60;<span className="or">0/0</span><br></br>
+<span className="or">[1] NaN</span><br></br>
+&#60;<span className="bl">m = c(2/3,3/3,0/0)</span><br></br>
+&#60;<span className="bl">m</span><br></br>
+[1] 0.6666667 1.0000000       <span className="or">Nan</span><br></br>
+&#60;<br></br>
+&#60;<span className="bl">is.finite(m)</span><br></br>
+[1] TRUE TRUE <span className="or">FALSE</span><br></br>
+&#60;<span className="bl">is.finite(m)</span><br></br>
+[1] FALSE FALSE FALSE<br></br>
+&#60;<span className="bl">is.nan(m)</span><br></br>
+[1] FALSE FALSE <span className="or">TRUE</span><br></br>
+&#60;<span className="bl">k = 1/0</span><br></br>
+&#60;<span className="bl">k</span><br></br>
+[1] <span className="or">Inf</span><br></br>
+&#60; | 
+</code></pre>
+
+<h4 className="p">How to do it...</h4>
+<p className="p">The missing values are represented in R by NA. When we download data, it may have missing data and this is represented in R by NA:</p>
+<pre><code>
+z = c( 1,2,3, NA,5,NA) # NA in R is missing Data<br></br>
+</code></pre>
+<p className="p">To detect missing values, we can use the install.packages() function or is.na(), as shown:</p>
+<pre><code>
+complete.cases(z) # function to detect NA<br></br>
+is.na(z) # function to detect NA<br></br>
+</code></pre>
+<p className="p">To remove the NA values from our data, we can type the following in our active R session console window:</p>
+<pre><code>
+clean &#60;- complete.cases(z)<br></br>
+z[clean] # used to remove NA from data<br></br>
+</code></pre>
+<p className="p">Please note the use of square brackets ([ ]) instead of parentheses.</p>
+<p className="p">In R, not a number is abbreviated as NaN. The following lines will generate NaN values:</p>
+<pre><code>
+##NaN<br></br>
+0/0<br></br>
+m &#60;- c(2/3,3/3,0/0)<br></br>
+m<br></br>
+</code></pre>
+
+<p className="p">The is.finite, is.infinite, or is.nan functions will generate logical values (TRUE or FALSE).</p>
+<pre><code>
+is.finite(m)<br></br>
+is.infinite(m)<br></br>
+is.nan(m)<br></br>
+</code></pre>
+<p className="p">The following line will generate inf as a special value in R:</p>
+<pre><code>
+## infinite<br></br>
+k = 1/0</code></pre>
+<p className="p"><strong>Tip</strong></p>
+<p className="p"><strong>Downloading the example code</strong></p>
+<p className="p">You can download the example code files for all Packt books you have purchased from your account at <code>http://www.packtpub.com</code>code>. If you purchased this book elsewhere, you can visit http://www.packtpub.com/support and register to have the files e-mailed directly to you.</p>
+
+
+
+
+
+
+<h4 className="p">How it works...</h4>
+<p className="p">complete.cases(z) is a logical vector indicating complete cases that have no missing value (NA). On the other hand, is. na(z) indicates which elements are missing. In both cases, the argument is our data, a vector, or a matrix.</p>
+
+<pre><code>
+&#60;<span className="bl">z = c( 1,2,3, NA,5,NA)</span><br></br>
+&#60;<span className="bl">complete.cases(z)</span><br></br>
+[1] TRUE TRUE TRUE <span className="or">FALSE</span> TRUE <span className="or">FALSE</span><br></br>
+&#60;<span className="bl">is.na(z)</span><br></br>
+[1] FALSE FALSE FALSE <span className="or">TRUE</span> FALSE <span className="or">TRUE</span><br></br>
+&#60;<span className="bl"> dk = c(1,45,67,20)</span><br></br>
+&#60;<span className="bl"> anyNA(dk)</span><br></br>
+[1] FALSE<br></br>
+&#60;<span className="bl"> dk[3] = NA</span><br></br>
+&#60;<span className="bl"> dk</span><br></br>
+[1] 1 45 NA 20<br></br>
+&#60;<span className="bl"> anyNA(dk)</span><br></br>
+[1] TRUE<br></br>
+&#60; | 
+
+</code></pre>
+
+<p className="p">R also allows its users to check if any element in a matrix or a vector is NA by using the anyNA() function. We can coerce or assign NA to any element of a vector using the square brackets ([ ]). The [3] input instructs R to assign NA to the third element of the dk vector.</p>
+<h2 className="p">Matrices in R</h2>
+<p className="p">In this recipe, we will dive into R's capability with regard to matrices.</p>
